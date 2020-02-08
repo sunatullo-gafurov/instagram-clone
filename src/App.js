@@ -1,26 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
+import Wall from './components/Wall';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App() {
+    return (
+        <div className="App">
+            <img className="logo" src="https://www.transparentpng.com/download/logo-instagram/g3tCwR-logo-instagram-high-quality-pictures.png" alt="" />
+            <h2 className="title">𝓘𝓷𝓼𝓽𝓪𝓰𝓻𝓪𝓶</h2>
+            <div className="wall"><Wall /></div>
+        </div>
+    )
 }
-
-export default App;
