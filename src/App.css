@@ -44,7 +44,7 @@ h2.title {
 .red-heart-comment {
   position: relative;
   left: 253px;
-  bottom: 20px;
+  bottom: 22px;
   width: 10px;
   height: 9px;
   transition: .3s ease all;
@@ -99,6 +99,10 @@ input[type='text'] {
   background-color: lavenderblush;
   border: 0;
   padding: 5px;
+}
+
+button, input:focus {
+  outline: none;
 }
 
 .add-btn {
