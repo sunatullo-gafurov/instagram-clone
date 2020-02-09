@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 export default function PostLikes(props) {
-    const {likes, id, handlePostDislike, handlePostLike} = props;
-    const [liked, setLiked] = useState(false)
+    const {likes, id, handlePostDislike, handlePostLike, liked, setLiked} = props;
+    
 
     return (
         <div>
