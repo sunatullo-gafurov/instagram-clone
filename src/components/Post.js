@@ -17,8 +17,8 @@ export default function Post(props) {
     };
     
     return (
-        <div>
-            <img onDoubleClick={() => handleLike(id)} src={img} alt=""/>
+        <div className="post">
+            <img className="post-img" onDoubleClick={() => handleLike(id)} src={img} alt=""/>
             <PostLikes {...props} liked={liked} setLiked={setLiked} />
             <Comments {...props} />
         </div>

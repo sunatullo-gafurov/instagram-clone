@@ -22,6 +22,18 @@ h2.title {
   margin-top: 30px;
 }
 
+.post {
+  border: 1px solid silver;
+  box-shadow: 1px 1px silver;
+  margin-bottom: 20px;
+  width: 310px;
+}
+
+.post-img {
+  height: 300px;
+  width: 310px;
+}
+
 .red-heart-post {
   width: 32px;
   height: 30px;
@@ -84,6 +96,7 @@ h2.title {
 
 .post-likes {
   position: relative;
+  left: 5px;
   bottom: 10px;
   font-weight: 700;
   font-size: 14px;
