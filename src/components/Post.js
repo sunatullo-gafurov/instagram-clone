@@ -3,16 +3,16 @@ import PostLikes from './PostLikes';
 import Comments from './Comments';
 
 export default function Post(props) {
-    const {img, handlePostLike, handlePostDislike, id} = props;
+    const {img, id, dispatch} = props;
     const [liked, setLiked] = useState(false)
     
     const handleLike = (id) => {
         if (liked) {
             setLiked(!liked)
-            handlePostDislike(id)
+            dispatch({type: 'POST_DISLIKE', id: id})
         } else {
             setLiked(!liked)
-            handlePostLike(id)
+            dispatch({type: 'POST_LIKE', id: id})
         }
     };
     

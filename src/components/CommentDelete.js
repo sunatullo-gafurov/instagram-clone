@@ -1,10 +1,10 @@
 import React from 'react'
 
 export default function CommentDelete(props) {
-    const {id, handleDelete, postId} = props;
+    const {id, dispatch, postId} = props;
     return (
         <div>
-            <button className="delete-comment" onClick={() => handleDelete(postId, id)}>Delete</button>
+            <button className="delete-comment" onClick={() => dispatch({type: 'DELETE_COMMENT', id: postId, commentId: id})}>Delete</button>
         </div>
     )
 }

@@ -1,5 +1,7 @@
-import React, {useState} from 'react';
+import React, {useReducer} from 'react';
 import Post from './Post';
+import reducer from '../reducers/postReducer';
+
 
 
 const initialPosts = [
@@ -43,61 +45,11 @@ const initialPosts = [
 ];
 
 export default function Wall() {
-    const [posts, setPosts] = useState(initialPosts);
+    const [posts, dispatch] = useReducer(reducer, initialPosts);
 
-    const handlePostLike = (id) => {
-        setPosts(posts.map(post => id === post.id ? {...post, likes: post.likes + 1} : post))
-    };
-    const handlePostDislike = (id) => {
-        setPosts(posts.map(post => id === post.id ? {...post, likes: post.likes - 1} : post))
-    };
-
-    const handleCommentLike = (postId, commentId) => {
-        console.log(postId, commentId);
-        setPosts(posts.map(post => {
-            if (postId === post.id) {
-                return {...post, comments: post.comments.map(comment => commentId === comment.id ? {...comment, likes: comment.likes + 1} : comment)}
-            } else {
-                return post;
-            }
-        }))
-    };
-    const handleCommentDislike = (postId, commentId) => {
-        console.log(postId, commentId);
-        setPosts(posts.map(post => {
-            if (postId === post.id) {
-                return {...post, comments: post.comments.map(comment => commentId === comment.id ? {...comment, likes: comment.likes - 1} : comment)}
-            } else {
-                return post;
-            }
-        }))
-    };
-    let randomId = Math.floor(Math.random() * 50 + 1);
-    const handleAddComment = (postId, text) => {
-        setPosts(posts.map(post => {
-            if (postId === post.id) {
-                return {...post, comments: [...post.comments, {likes: 0, text: text, id: randomId, img: 'https://i.pravatar.cc/20?img=' + randomId}]};
-            } else {
-                return post;
-            }
-            
-        }))
-    };
-
-    const handleDeleteComment = (postId, id) => {
-        console.log(postId, id);
-        setPosts(posts.map(post => {
-            if (postId === post.id) {
-                return {...post, comments: post.comments.filter(comment => id !== comment.id)};
-            } else {
-                return post;
-            }
-        }))
-    };
-    
     return (
         <div>
-            {posts.map(post => <Post key={post.id} {...post} handlePostDislike={handlePostDislike} handlePostLike={handlePostLike} handleCommentLike={handleCommentLike} handleCommentDislike={handleCommentDislike} handleAddComment={handleAddComment} handleDeleteComment={handleDeleteComment} />)}
+            {posts.map(post => <Post key={post.id} {...post} dispatch={dispatch} />)}
         </div>
     )
 }

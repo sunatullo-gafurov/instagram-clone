@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 
 export default function AddForm(props) {
-    const {id, handleAddComment} = props;
+    const {id, dispatch} = props;
     const [text, setText] = useState('')
     const handleChange = (e) => {
         setText(e.target.value)
     };
     const handleSubmit = (e) => {
         e.preventDefault();
-        handleAddComment(id, text);
+        dispatch({type: 'ADD_COMMENT', id: id, text: text});
         setText('');
 
     };
